@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:34:45
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-04-29 19:14:16
+ * @LastEditTime: 2022-04-29 21:34:14
  * @FilePath: \webpack-demo\webpack.config.ts
  */
 
@@ -96,25 +96,40 @@ module.exports = defineConfig({
         },
       },
       {
-        test: /\.ejs$/,
-        loader: 'ejs-loader',
-        options: {
-          variable: 'data',
-          interpolate : '\\{\\{(.+?)\\}\\}',
-          evaluate : '\\[\\[(.+?)\\]\\]'
+        test: /\.ejs$/, 
+        use: {
+          loader: 'ejs-compiled-loader',
+          options: {
+            htmlmin: true,
+            htmlminOptions: {
+              removeComments: true
+            }
+          }
         }
       }
+      // {
+      //   test: /\.ejs$/,
+      //   loader: 'ejs-loader',
+      //   options: {
+      //     esModule: false
+      //   }
+      //   // options: {
+      //   //   variable: 'data',
+      //   //   interpolate : '\\{\\{(.+?)\\}\\}',
+      //   //   evaluate : '\\[\\[(.+?)\\]\\]'
+      //   // }
+      // }
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      _: "underscore"
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/document.ejs'),
       inject: true,
       filename: 'index.html',
     }),
-    new webpack.ProvidePlugin({
-      _: "lodash"
-    })
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.ejs'],

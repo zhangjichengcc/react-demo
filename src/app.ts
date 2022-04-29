@@ -2,16 +2,34 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:33
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-04-29 19:26:26
+ * @LastEditTime: 2022-04-29 21:44:40
  * @FilePath: \webpack-demo\src\app.ts
  */
 
 import '@/styles/index.less';
 
 import * as ejs from 'ejs';
+// @ts-ignore
+// import * as hyperlinkTemplate from 'ejs-loader!./pages/index.ejs';
+
+// var mainTemplate = require('ejs!./document.ejs');
+// var hyperlinkTemplate = require('ejs-loader!./pages/index.ejs');
+var template = require("ejs-compiled-loader!./pages/index.ejs");
+// var renderedHtml = mainTemplate({ hyperlink: hyperlinkTemplate });
+
+
 
 const people = ['zhangjicheng', 'neil', 'alex'];
-// ejs.render(`<%- include('./pages/index.ejs') %>`, {people: people});
+// const tmp = ejs.render(`<%- include('./pages/index.ejs') %>`, {data: {name: '111'}});
+template({});
 
-const str = 'aaaa'
+const tmp = ejs.render('<%- include template -%>');
+
+// @ts-ignore
+// globalThis.aa = tmp;
+
+const html = document.querySelector('#main');
+// console.log()
+html.append(tmp)
+
 
