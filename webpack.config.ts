@@ -2,18 +2,16 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:34:45
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-04-29 21:34:14
+ * @LastEditTime: 2022-05-05 18:28:49
  * @FilePath: \webpack-demo\webpack.config.ts
  */
 
-const path = require('path');
+import * as path from 'path';
 import * as webpack from 'webpack';
 import { Configuration as WebpackOriginConfig } from 'webpack';
 import { Configuration as WebpackDevServerOriginConfig } from 'webpack-dev-server';
-// import * as yaml from 'yamljs';
-// import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-const yaml = require('yamljs');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import * as yaml from 'yamljs';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
 /** webpack 配置添加提示 */
 type WebpackConfigAny = {
@@ -87,38 +85,26 @@ module.exports = defineConfig({
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.ejs$/,
+        use: [
+          {
+            loader: 'ejs-loader',
+            options: {
+              esModule: false,
+              variable: 'data',
+            },
+          },
+        ],
+      },
       // 加载yaml文件
       {
-        test: /\.yaml$/i,
+        test: /\.yaml/i,
         type: 'json',
         parser: {
           parse: yaml.parse,
         },
       },
-      {
-        test: /\.ejs$/, 
-        use: {
-          loader: 'ejs-compiled-loader',
-          options: {
-            htmlmin: true,
-            htmlminOptions: {
-              removeComments: true
-            }
-          }
-        }
-      }
-      // {
-      //   test: /\.ejs$/,
-      //   loader: 'ejs-loader',
-      //   options: {
-      //     esModule: false
-      //   }
-      //   // options: {
-      //   //   variable: 'data',
-      //   //   interpolate : '\\{\\{(.+?)\\}\\}',
-      //   //   evaluate : '\\[\\[(.+?)\\]\\]'
-      //   // }
-      // }
     ]
   },
   plugins: [
@@ -134,7 +120,7 @@ module.exports = defineConfig({
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.ejs'],
     alias: {
-      "@": path.resolve("src"),
+      "@": path.resolve(__dirname, "src"),
     },
     fallback: { 
       // ! 解决ejs Can't resolve 'fs'
@@ -147,7 +133,8 @@ module.exports = defineConfig({
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    port: 9000,
-    // open: true,
+    compress: true,
+    port: 9006,
+    open: true,
   },
 });

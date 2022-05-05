@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:33
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-04-29 21:44:40
+ * @LastEditTime: 2022-05-05 15:13:38
  * @FilePath: \webpack-demo\src\app.ts
  */
 
@@ -14,22 +14,28 @@ import * as ejs from 'ejs';
 
 // var mainTemplate = require('ejs!./document.ejs');
 // var hyperlinkTemplate = require('ejs-loader!./pages/index.ejs');
-var template = require("ejs-compiled-loader!./pages/index.ejs");
+// var template = require("ejs-compiled-loader!./pages/index.ejs");
 // var renderedHtml = mainTemplate({ hyperlink: hyperlinkTemplate });
 
+// var mainTemplate = require('./main.ejs');
+// var mainTemplate = require('ejs-loader!./main.ejs');
+// import * as mainTemplate from 'ejs-loader!./main.ejs';
 
 
-const people = ['zhangjicheng', 'neil', 'alex'];
+
+// const people = ['zhangjicheng', 'neil', 'alex'];
 // const tmp = ejs.render(`<%- include('./pages/index.ejs') %>`, {data: {name: '111'}});
-template({});
+// const a = template({data: people});
 
-const tmp = ejs.render('<%- include template -%>');
+// const tmp = ejs.render('<%- include src/pages/index.ejs -%>');
 
 // @ts-ignore
 // globalThis.aa = tmp;
 
-const html = document.querySelector('#main');
+// ejs.render(mainTemplate)
+
+// const html = document.querySelector('#main');
 // console.log()
-html.append(tmp)
+// html.append(ejs.render(mainTemplate))
 
 
