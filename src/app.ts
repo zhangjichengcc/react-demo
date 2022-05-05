@@ -2,11 +2,12 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:33
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 18:41:41
- * @FilePath: \webpack-demo\src\app.ts
+ * @LastEditTime: 2022-05-05 23:26:36
+ * @FilePath: /webpack5.0-demo/src/app.ts
  */
 
 import '@static/styles/index.less';
+// import '@static/styles/stylesheets/style.css';
 
 import * as ejs from 'ejs';
 // @ts-ignore
@@ -34,7 +35,7 @@ import * as ejs from 'ejs';
 
 // ejs.render(mainTemplate)
 
-// const html = document.querySelector('#main');
+const html = document.querySelector('#main');
 // console.log()
 // html.append(ejs.render(mainTemplate))
 

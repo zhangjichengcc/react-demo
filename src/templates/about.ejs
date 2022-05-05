@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-13 14:14:46
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 19:07:30
- * @FilePath: \webpack-demo\src\templates\about.ejs
+ * @LastEditTime: 2022-05-05 23:35:01
+ * @FilePath: /webpack5.0-demo/src/templates/about.ejs
 -->
 
 <% const about = require('@/data/about.yaml') %>
@@ -15,9 +15,9 @@
   </header>
 
   <section class="about-text">
-    <% about.information.forEach(function(text){ %>
-      <p><%- text %></p>
-    <% }) %>
+    <%=
+      about.information.map(text => `<p>${text}</p>`)
+    %>
   </section>
 
 
@@ -34,8 +34,8 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <img src="/images/icon-design.svg
-          " alt="design icon" width="40">
+          
+          <img src="<%= require('@/static/public/images/icon-design.svg') %>" alt="design icon" width="40">
         </div>
 
         <div class="service-content-box">
@@ -51,7 +51,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <img src="/images/icon-dev.svg" alt="Web development icon" width="40">
+          <!-- <img src="/images/icon-dev.svg" alt="Web development icon" width="40"> -->
         </div>
 
         <div class="service-content-box">
@@ -67,7 +67,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <img src="/images/icon-app.svg" alt="mobile app icon" width="40">
+          <!-- <img src="/images/icon-app.svg" alt="mobile app icon" width="40"> -->
         </div>
 
         <div class="service-content-box">
@@ -83,7 +83,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <img src="/images/icon-components.svg" alt="camera icon" width="40">
+          <!-- <img src="/images/icon-components.svg" alt="camera icon" width="40"> -->
         </div>
 
         <div class="service-content-box">
@@ -115,7 +115,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <img src="/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+            <!-- <img src="/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar> -->
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
@@ -137,7 +137,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <img src="/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+            <!-- <img src="/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar> -->
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
@@ -159,7 +159,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <img src="/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+            <!-- <img src="/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar> -->
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
@@ -181,7 +181,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <img src="/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+            <!-- <img src="/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar> -->
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
@@ -220,10 +220,10 @@
 
       <div class="modal-img-wrapper">
         <figure class="modal-avatar-box">
-          <img src="/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+          <!-- <img src="/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img> -->
         </figure>
 
-        <img src="/images/icon-quote.svg" alt="quote icon">
+        <!-- <img src="/images/icon-quote.svg" alt="quote icon"> -->
       </div>
 
       <div class="modal-content">

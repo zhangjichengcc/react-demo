@@ -15,6 +15,7 @@
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@types/ejs": "^3.1.0",
+    "@types/lodash": "^4.14.182",
     "@types/yamljs": "^0.2.31",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
