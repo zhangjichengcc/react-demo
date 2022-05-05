@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:34:45
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 18:28:49
+ * @LastEditTime: 2022-05-05 18:44:23
  * @FilePath: \webpack-demo\webpack.config.ts
  */
 
@@ -121,6 +121,9 @@ module.exports = defineConfig({
     extensions: ['.tsx', '.ts', '.js', '.ejs'],
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@static": path.resolve(__dirname, "src/static"),
+      "@data": path.relative(__dirname, "src/data"),
+      "@templates": path.relative(__dirname, "src/templates"),
     },
     fallback: { 
       // ! 解决ejs Can't resolve 'fs'

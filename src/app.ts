@@ -2,11 +2,11 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:33
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 15:13:38
+ * @LastEditTime: 2022-05-05 18:41:41
  * @FilePath: \webpack-demo\src\app.ts
  */
 
-import '@/styles/index.less';
+import '@static/styles/index.less';
 
 import * as ejs from 'ejs';
 // @ts-ignore

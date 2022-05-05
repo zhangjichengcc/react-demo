@@ -2,19 +2,143 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:06
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 18:20:05
+ * @LastEditTime: 2022-05-05 19:03:18
  * @FilePath: \webpack-demo\src\document.ejs
 -->
-<!doctype html>
+<!-- <!doctype html>
 <html>
   <head>
     <title>起步</title>
   </head>
   <body>
     <div id="main">
-      <% const aaa = require('@/data/base.yaml') %>
-      <%= aaa.title %>
-      <%= require('@/pages/index.ejs')() %>
+      const aaa = require('@/data/base.yaml')
+      aaa.title
+      require('@/pages/index.ejs')()
     </div>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhangjicheng's Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <!-- <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon"> -->
+
+  <!--
+    - custom css link
+  -->
+  <link rel='stylesheet' href='@static/stylesheets/style.css' />
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <!-- require('@templates/sidebar.ejs')() -->
+
+    <!--
+      - #main-content
+    -->
+
+    
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #ABOUT
+      -->
+      <%= require('@/templates/about.ejs')() %>
+      
+      <!--
+        - #RESUME
+      -->
+      <!--require('@templates/resume.ejs')() -->
+
+      <!--
+        - #PORTFOLIO
+      -->
+      <!--require('@templates/portfolio.ejs')() -->
+
+      <!--
+        - #BLOG
+      -->
+      <!--require('@templates/blog.ejs')() -->
+
+      <!--
+        - #CONTACT
+      -->
+      <!--require('@templates/contact.ejs')() -->
+
+    </div>
+
+  </main>
+
+  <!--
+    - custom js link
+  -->
+  <script src="/javascript/index.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
 </html>

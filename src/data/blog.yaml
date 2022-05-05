@@ -1,0 +1,52 @@
+/*
+ * @Author: zhangjicheng
+ * @Date: 2022-04-19 14:46:40
+ * @LastEditors: zhangjicheng
+ * @LastEditTime: 2022-04-22 03:20:15
+ * @FilePath: \ejs-portfolio\src\server\config\blog.ts
+ */
+
+export default {
+  blogs: [
+    {
+      title: 'Personal homepage',
+      tag: 'homepage',
+      createTime: '2021-01-01',
+      url: 'http://home.zhangjc.cn/',
+      preview: '/images/blog/homepage.jpg',
+      description: '个人主页，整合部分开发组件，采用前后端分离的方式开发部署。前端：react + less + umi + typescript; 后端：node + nestjs + typescript + mongodb'
+    },
+    {
+      title: 'Personal blog',
+      tag: 'blog',
+      createTime: '2021-01-01',
+      url: 'http://blog.zhangjc.cn/',
+      preview: '/images/blog/blog-new.jpg',
+      description: '个人博客，发布个人技术文章，采用hexo搭建的静态项目'
+    },
+    {
+      title: 'Personal note',
+      tag: 'note',
+      createTime: '2018-01-01',
+      url: 'http://note.zhangjc.cn/',
+      preview: '/images/blog/personal-note.jpg',
+      description: '个人笔记，整理部分开发问题及文档'
+    },
+    {
+      title: 'github.blog',
+      tag: 'blog',
+      createTime: '2018-02-02',
+      url: 'https://zhangjichengcc.github.io/',
+      preview: '/images/blog/blog-old.jpg',
+      description: '基于hexo，挂载于github.io的个人博客'
+    },
+    {
+      title: 'Personal homepage (old)',
+      tag: 'homepage',
+      createTime: '2020-10-21',
+      url: 'http://zhangjc.cn/',
+      preview: '/images/blog/homepage-old.jpg',
+      description: '个人主页（旧版），整理部分博客文章，前后端分离，采用react、antd、less、nodejs、express、mysql搭建的个人主页'
+    },
+  ],
+}
