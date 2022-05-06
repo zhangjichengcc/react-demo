@@ -2,22 +2,13 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:16:06
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 23:57:00
- * @FilePath: /webpack5.0-demo/src/document.ejs
+ * @LastEditTime: 2022-05-06 18:33:55
+ * @FilePath: \webpack-demo\src\document.ejs
 -->
-<!-- <!doctype html>
-<html>
-  <head>
-    <title>起步</title>
-  </head>
-  <body>
-    <div id="main">
-      const aaa = require('@/data/base.yaml')
-      aaa.title
-      require('@/pages/index.ejs')()
-    </div>
-  </body>
-</html> -->
+
+<% 
+  const base = require('@/data/base.yaml')
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,17 +17,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhangjicheng's Portfolio</title>
+  <title><%= base.title %></title>
 
   <!--
     - favicon
   -->
-  <!-- <link rel="shortcut icon" href="/images/logo.ico" type="image/x-icon"> -->
-
-  <!--
-    - custom css link
-  -->
-  <link rel='stylesheet' href=“<%= require('@static/stylesheet/style.css') %>” />
+  <link rel="shortcut icon" href="<%= require('@static/images/logo.ico') %>" type="image/x-icon">
 
   <!--
     - google font link
@@ -58,7 +44,7 @@
       - #SIDEBAR
     -->
 
-    <!-- require('@templates/sidebar.ejs')() -->
+    <%= require('@/templates/sidebar.ejs')() %>
 
     <!--
       - #main-content
@@ -107,22 +93,22 @@
       <!--
         - #RESUME
       -->
-      <!--require('@templates/resume.ejs')() -->
+      <%= require('@/templates/resume.ejs')() %>
 
       <!--
         - #PORTFOLIO
       -->
-      <!--require('@templates/portfolio.ejs')() -->
+      <%= require('@/templates/portfolio.ejs')() %>
 
       <!--
         - #BLOG
       -->
-      <!--require('@templates/blog.ejs')() -->
+      <%= require('@/templates/blog.ejs')() %>
 
       <!--
         - #CONTACT
       -->
-      <!--require('@templates/contact.ejs')() -->
+      <%= require('@/templates/contact.ejs')() %>
 
     </div>
 
@@ -131,7 +117,7 @@
   <!--
     - custom js link
   -->
-  <script src="/javascript/index.js"></script>
+  <!-- <script src="/javascript/index.js"></script> -->
 
   <!--
     - ionicon link

@@ -2,13 +2,12 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-28 11:34:45
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 23:55:44
- * @FilePath: /webpack5.0-demo/webpack.config.ts
+ * @LastEditTime: 2022-05-06 17:02:24
+ * @FilePath: \webpack-demo\webpack.config.ts
  */
 
 import * as path from 'path';
 import * as webpack from 'webpack';
-import * as lodash from 'lodash';
 import { Configuration as WebpackOriginConfig } from 'webpack';
 import { Configuration as WebpackDevServerOriginConfig } from 'webpack-dev-server';
 import * as yaml from 'yamljs';
@@ -64,7 +63,7 @@ module.exports = defineConfig({
         }
       },
       {
-        test: /\.(less|css)$/i,
+        test: /\.less$/i,
         use: [
           {
             loader: 'style-loader',
@@ -83,7 +82,18 @@ module.exports = defineConfig({
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
       },
       {
@@ -103,7 +113,7 @@ module.exports = defineConfig({
       },
       // 加载yaml文件
       {
-        test: /\.yaml/i,
+        test: /\.yaml$/i,
         type: 'json',
         parser: {
           parse: yaml.parse,
@@ -130,12 +140,12 @@ module.exports = defineConfig({
       "@data": path.relative(__dirname, "src/data"),
       "@templates": path.relative(__dirname, "src/templates"),
     },
-    // fallback: { 
-    //   // ! 解决ejs Can't resolve 'fs'
-    //   // ? https://stackoverflow.com/questions/66352613/module-not-found-when-run-build-webpack-with-ejs-module
-    //   "fs": false,  
-    //   "path": require.resolve("path-browserify"),
-    // }
+    fallback: { 
+      // ! 解决ejs Can't resolve 'fs'
+      // ? https://stackoverflow.com/questions/66352613/module-not-found-when-run-build-webpack-with-ejs-module
+      "fs": false,  
+      "path": require.resolve("path-browserify"),
+    }
   },
   devServer: {
     static: {

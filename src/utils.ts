@@ -2,9 +2,11 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-21 18:41:56
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-04-21 18:43:41
- * @FilePath: \ejs-portfolio\src\public\javascripts\utils.js
+ * @LastEditTime: 2022-05-06 17:44:23
+ * @FilePath: \webpack-demo\src\utils.ts
  */
+
+// @ts-nocheck
 
 /**
  * 格式化日期，英文格式

@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-04-13 14:14:46
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-05 23:35:01
- * @FilePath: /webpack5.0-demo/src/templates/about.ejs
+ * @LastEditTime: 2022-05-06 16:41:22
+ * @FilePath: \webpack-demo\src\templates\about.ejs
 -->
 
 <% const about = require('@/data/about.yaml') %>
@@ -15,9 +15,9 @@
   </header>
 
   <section class="about-text">
-    <%=
-      about.information.map(text => `<p>${text}</p>`)
-    %>
+    <% about.information.forEach(function(text){ %>
+      <p><%= text %></p>
+    <% }) %>
   </section>
 
 
@@ -35,7 +35,7 @@
 
         <div class="service-icon-box">
           
-          <img src="<%= require('@/static/public/images/icon-design.svg') %>" alt="design icon" width="40">
+          <img src="<%= require('@static/images/about/icon-design.svg') %>" alt="design icon" width="40">
         </div>
 
         <div class="service-content-box">
@@ -51,7 +51,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <!-- <img src="/images/icon-dev.svg" alt="Web development icon" width="40"> -->
+          <img src="<%= require('@static/images/about/icon-dev.svg') %>" alt="Web development icon" width="40">
         </div>
 
         <div class="service-content-box">
@@ -67,7 +67,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <!-- <img src="/images/icon-app.svg" alt="mobile app icon" width="40"> -->
+          <img src="<%= require('@static/images/about/icon-app.svg') %>" alt="mobile app icon" width="40">
         </div>
 
         <div class="service-content-box">
@@ -83,7 +83,7 @@
       <li class="service-item">
 
         <div class="service-icon-box">
-          <!-- <img src="/images/icon-components.svg" alt="camera icon" width="40"> -->
+          <img src="<%= require('@static/images/about/icon-components.svg') %>" alt="camera icon" width="40">
         </div>
 
         <div class="service-content-box">
@@ -115,7 +115,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <!-- <img src="/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar> -->
+            <img src="<%= require('@static/images/about/avatar-1.png') %>" alt="Daniel lewis" width="60" data-testimonials-avatar>
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
@@ -137,7 +137,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <!-- <img src="/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar> -->
+            <img src="<%= require('@static/images/about/avatar-2.png') %>" alt="Jessica miller" width="60" data-testimonials-avatar>
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
@@ -159,7 +159,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <!-- <img src="/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar> -->
+            <img src="<%= require('@static/images/about/avatar-3.png') %>" alt="Emily evans" width="60" data-testimonials-avatar>
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
@@ -181,7 +181,7 @@
         <div class="content-card" data-testimonials-item>
 
           <figure class="testimonials-avatar-box">
-            <!-- <img src="/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar> -->
+            <img src="<%= require('@static/images/about/avatar-4.png') %>" alt="Henry william" width="60" data-testimonials-avatar>
           </figure>
 
           <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
@@ -220,10 +220,10 @@
 
       <div class="modal-img-wrapper">
         <figure class="modal-avatar-box">
-          <!-- <img src="/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img> -->
+          <img src="<%= require('@static/images/about/avatar-1.png') %>" alt="Daniel lewis" width="80" data-modal-img>
         </figure>
 
-        <!-- <img src="/images/icon-quote.svg" alt="quote icon"> -->
+        <img src="<%= require('@static/images/about/icon-quote.svg') %>" alt="quote icon">
       </div>
 
       <div class="modal-content">
@@ -259,10 +259,13 @@
 
     <ul class="clients-list has-scrollbar">
 
-      <% about.clients.forEach(function(item){ %>
+      <%
+        about.clients.forEach(function(item){ 
+          const logoUrl = require('@static/images/about/' + item.logo);
+      %>
         <li class="clients-item">
           <a target="blank" href="<%= item.url %>">
-            <img src="<%= item.logo %> " alt="client logo">
+            <img src="<%= logoUrl %> " alt="client logo">
           </a>
         </li>
       <% }) %>

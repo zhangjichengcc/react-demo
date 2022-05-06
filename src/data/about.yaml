@@ -5,21 +5,21 @@ clients:
   - 
     label: '微店'
     url: 'https://www.weidian.com/' 
-    logo: '/images/weidian.png'
+    logo: 'weidian.png'
   
   - 
     label: '微店排版君'
     url: 'https://pbj.weidian.com/H5/editor.php?from=templates&cate=1000' 
-    logo: '/images/wd-dpzx.png'
+    logo: 'wd-dpzx.png'
   
   - 
     label: '移动办税app'
     url: 'https://wxswj.shenzhen.chinatax.gov.cn' 
-    logo: '/images/wxswj.png'
+    logo: 'wxswj.png'
   
   - 
     label: '掌课h5'
     url: 'https://ksb.91renrenshi.com' 
-    logo: '/images/zhangke.png'
+    logo: 'zhangke.png'
   
 
