@@ -1,158 +1,93 @@
 /*
  * @Author: zhangjicheng
- * @Date: 2022-04-28 11:34:45
+ * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-05-06 17:02:24
+ * @LastEditTime: 2022-07-18 18:29:05
  * @FilePath: \webpack-demo\webpack.config.ts
  */
+// Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-import * as path from 'path';
-import * as webpack from 'webpack';
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+// const { Configuration: WebpackOriginConfig } = require('webpack');
 import { Configuration as WebpackOriginConfig } from 'webpack';
-import { Configuration as WebpackDevServerOriginConfig } from 'webpack-dev-server';
-import * as yaml from 'yamljs';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
-/** webpack 配置添加提示 */
-type WebpackConfigAny = {
-  [key: string]: any
-}
+const isProduction = process.env.NODE_ENV == "production";
 
-type WebpackDevServerConfig = WebpackDevServerOriginConfig &
-  WebpackConfigAny
+const stylesHandler = MiniCssExtractPlugin.loader;
 
-type WebpackConfig = WebpackOriginConfig & {
-  devServer: WebpackDevServerConfig
-} & WebpackConfigAny
-
-const defineConfig = (config: WebpackConfig): WebpackConfig => config
-
-/** end */
-
-module.exports = defineConfig({
-  mode: 'development',
-  entry: [
-    './src/app.ts',
-  ],
-  target: 'web',
+const config: WebpackOriginConfig = {
+  entry: "./src/index.ts",
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    path: path.resolve(__dirname, "dist"),
   },
-  devtool: 'inline-source-map',
-  // ? 展示详细错误信息
-  stats: {
-    children: true,
+  devServer: {
+    hot: true,
+    open: true,
+    host: "localhost",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.html",
+    }),
+
+    new MiniCssExtractPlugin(),
+
+    // Add your plugins here
+    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+  ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        test: /\.(ts|tsx)$/i,
+        loader: "ts-loader",
+        exclude: ["/node_modules/"],
       },
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', "@babel/preset-typescript"]
-          }
+        test: /\.jsx$/,
+        loader: "babel-loader",
+        options: {
+          presets: [
+            "@babel/preset-react", 
+            {
+              "runtime": "automatic"
+            },
+            '@babel/preset-typescript'
+          ],
         }
       },
       {
         test: /\.less$/i,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                strictMath: true,
-              },
-            },
-          },
-        ],
+        use: [stylesHandler, "css-loader", "postcss-loader", "less-loader"],
       },
       {
         test: /\.css$/i,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-        ]
+        use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
-        type: 'asset/resource',
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: "asset",
       },
-      {
-        test: /\.ejs$/,
-        use: [
-          {
-            loader: 'ejs-loader',
-            options: {
-              esModule: false,
-              variable: 'data',
-              // variable: 'data',
-              // interpolate : '\\{\\{(.+?)\\}\\}',
-              // evaluate : '\\[\\[(.+?)\\]\\]'
-            },
-          },
-        ],
-      },
-      // 加载yaml文件
-      {
-        test: /\.yaml$/i,
-        type: 'json',
-        parser: {
-          parse: yaml.parse,
-        },
-      },
-    ]
+
+      // Add your rules for custom modules here
+      // Learn more about loaders from https://webpack.js.org/loaders/
+    ],
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      _: "underscore"
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, './src/document.ejs'),
-      inject: true,
-      filename: 'index.html',
-      hash: true,
-    }),
-  ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.ejs'],
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-      "@static": path.resolve(__dirname, "src/static"),
-      "@data": path.relative(__dirname, "src/data"),
-      "@templates": path.relative(__dirname, "src/templates"),
-    },
-    fallback: { 
-      // ! 解决ejs Can't resolve 'fs'
-      // ? https://stackoverflow.com/questions/66352613/module-not-found-when-run-build-webpack-with-ejs-module
-      "fs": false,  
-      "path": require.resolve("path-browserify"),
-    }
+    extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    compress: true,
-    port: 9006,
-    open: true,
-  },
-});
+};
+
+module.exports = () => {
+  if (isProduction) {
+    config.mode = "production";
+
+    config.plugins?.push(new WorkboxWebpackPlugin.GenerateSW());
+  } else {
+    config.mode = "development";
+    config.devtool = "source-map";
+  }
+  return config;
+};

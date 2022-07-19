@@ -1,18 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "es6",
     "target": "es5",
     "allowJs": true,
-    "moduleResolution": "node",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@data/*": ["./src/data/*"],
-      "@static/*": ["./src/static/*"],
-      "@templates/*": ["./src/templates/*"],
-    }
-  }
+    "sourceMap": true, 
+    "jsx": "react-jsx",
+    "moduleResolution": "node"
+  },
+  "files": ["src/index.ts"]
 }
