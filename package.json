@@ -31,7 +31,8 @@
   "dependencies": {
     "@babel/cli": "^7.18.9",
     "@babel/preset-typescript": "^7.18.6",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-router": "^6.3.0"
   },
   "version": "1.0.0",
   "description": "My webpack project",

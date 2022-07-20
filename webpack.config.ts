@@ -2,29 +2,27 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-19 18:52:56
+ * @LastEditTime: 2022-07-20 11:54:07
  * @FilePath: \webpack-demo\webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-// const path = require("path");
 import * as path from 'path';
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-import * as WorkboxWebpackPlugin from 'workbox-webpack-plugin';
-import { Configuration as WebpackOriginConfig } from 'webpack';
+import * as webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// in case you run into any typescript error when configuring `devServer`
+import 'webpack-dev-server';
 
 const isProduction = process.env.NODE_ENV == "production";
-
 const stylesHandler = MiniCssExtractPlugin.loader;
 
-const config: WebpackOriginConfig = {
-  entry: "./src/index.ts",
+const config: webpack.Configuration = {
+  // mode: 'production',
+  entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
+    // filename: 'foo.bundle.js',
   },
   devServer: {
     hot: true,
@@ -43,11 +41,11 @@ const config: WebpackOriginConfig = {
   ],
   module: {
     rules: [
-      // {
-      //   test: /\.(ts|tsx)$/i,
-      //   loader: "ts-loader",
-      //   exclude: ["/node_modules/"],
-      // },
+      {
+        test: /\.(ts|tsx)$/i,
+        loader: "ts-loader",
+        exclude: ["/node_modules/"],
+      },
       {
         test: /\.(jsx|tsx)$/,
         loader: "babel-loader",
@@ -95,28 +93,10 @@ const config: WebpackOriginConfig = {
 
 if (isProduction) {
   config.mode = "production";
-
-  config.plugins?.push(new WorkboxWebpackPlugin.GenerateSW());
+  // config.plugins?.push(new WorkboxWebpackPlugin.GenerateSW());
 } else {
   config.mode = "development";
   config.devtool = "source-map";
 }
 
 export default config;
-
-
-// import * as path from 'path';
-// import * as webpack from 'webpack';
-// // in case you run into any typescript error when configuring `devServer`
-// import 'webpack-dev-server';
-
-// const config: webpack.Configuration = {
-//   mode: 'production',
-//   entry: './foo.js',
-//   output: {
-//     path: path.resolve(__dirname, 'dist'),
-//     filename: 'foo.bundle.js',
-//   },
-// };
-
-// export default config;
