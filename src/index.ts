@@ -2,9 +2,11 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:36:19
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-20 19:14:50
- * @FilePath: \webpack-demo\src\index.ts
+ * @LastEditTime: 2022-07-21 00:16:27
+ * @FilePath: /webpack5.0-demo/src/index.ts
  */
+
+import { FC } from 'react';
 console.log("Hello World!");
 
 
@@ -62,26 +64,26 @@ class VerificationCode {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 
-  setBgImg(url) {
-    function getBase64Image(img) {
-      var canvas = document.createElement("canvas");
-      canvas.width = img.width;
-      canvas.height = img.height;
-      var ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, img.width, img.height);
-      var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
-      var dataURL = canvas.toDataURL("image/"+ext);
-      return dataURL;
-    }
-    let imgs = document.createElement('img');
-    // 1. 增加 crossOrigin 属性，值为 anonymous
-    // 含义：执行一个跨域请求，在请求头里加 origin 字段
-    // 2. 后端要返回 Access-Control-Allow-Origin 响应头来允许跨域
-    // imgs.crossOrigin = 'anonymous'
-    // imgs.src = url
-    this.ctx.drawImage(getBase64Image(url), 0, 0, this.width, this.height);
-    return this;
-  }
+  // setBgImg(url) {
+  //   function getBase64Image(img) {
+  //     var canvas = document.createElement("canvas");
+  //     canvas.width = img.width;
+  //     canvas.height = img.height;
+  //     var ctx = canvas.getContext("2d");
+  //     ctx.drawImage(img, 0, 0, img.width, img.height);
+  //     var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+  //     var dataURL = canvas.toDataURL("image/"+ext);
+  //     return dataURL;
+  //   }
+  //   let imgs = document.createElement('img');
+  //   // 1. 增加 crossOrigin 属性，值为 anonymous
+  //   // 含义：执行一个跨域请求，在请求头里加 origin 字段
+  //   // 2. 后端要返回 Access-Control-Allow-Origin 响应头来允许跨域
+  //   // imgs.crossOrigin = 'anonymous'
+  //   // imgs.src = url
+  //   this.ctx.drawImage(getBase64Image(url), 0, 0, this.width, this.height);
+  //   return this;
+  // }
 
   setBgColor(color: string) {
     this.ctx.fillStyle = color;
@@ -109,3 +111,5 @@ class VerificationCode {
     return this.canvas.toDataURL('image/jpeg', 1);
   }
 }
+
+document.

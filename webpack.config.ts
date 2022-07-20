@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-20 11:54:07
- * @FilePath: \webpack-demo\webpack.config.ts
+ * @LastEditTime: 2022-07-21 00:11:03
+ * @FilePath: /webpack5.0-demo/webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
@@ -19,7 +19,7 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config: webpack.Configuration = {
   // mode: 'production',
-  entry: './src/index.ts',
+  entry: './src/app.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     // filename: 'foo.bundle.js',
@@ -51,11 +51,14 @@ const config: webpack.Configuration = {
         loader: "babel-loader",
         options: {
           presets: [
-            "@babel/preset-react", 
-            {
-              "runtime": "automatic"
-            },
-            "@babel/preset-typescript"
+            "@babel/preset-env",
+            [
+              "@babel/preset-react", 
+              {
+                "runtime": "automatic"
+              },
+              "@babel/preset-typescript"
+            ]
           ],
         }
       },
