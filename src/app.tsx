@@ -2,11 +2,12 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:53:31
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-21 00:12:32
+ * @LastEditTime: 2022-07-22 00:13:48
  * @FilePath: /webpack5.0-demo/src/app.tsx
  */
 import React, { FC } from 'react';
-import * as ReactDOM from 'react-dom';
+import VerificationCode from 'picture-verification-code';
+import ReactDOM from 'react-dom';
 
 const App = () => {
 
@@ -17,8 +18,7 @@ const App = () => {
   )
 }
 
-const appDom = document.getElementById('app');
-
-const root = ReactDOM.createRoot(appDom);
-
-root.render(App);
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)

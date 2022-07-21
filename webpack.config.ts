@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-21 00:11:03
+ * @LastEditTime: 2022-07-22 00:10:56
  * @FilePath: /webpack5.0-demo/webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
@@ -47,30 +47,9 @@ const config: webpack.Configuration = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.(jsx|tsx)$/,
-        loader: "babel-loader",
-        options: {
-          presets: [
-            "@babel/preset-env",
-            [
-              "@babel/preset-react", 
-              {
-                "runtime": "automatic"
-              },
-              "@babel/preset-typescript"
-            ]
-          ],
-        }
-      },
-      {
-        test: /\.(ts|js)?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-typescript"],
-          },
-        },
+        // 同时认识ts jsx js tsx 文件
+        test: /\.(t|j)sx?$/,
+        use: 'babel-loader',
       },
       {
         test: /\.less$/i,
