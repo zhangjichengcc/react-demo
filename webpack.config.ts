@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-22 00:10:56
+ * @LastEditTime: 2022-07-25 00:18:51
  * @FilePath: /webpack5.0-demo/webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
@@ -11,13 +11,14 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { merge } from 'webpack-merge';
 // in case you run into any typescript error when configuring `devServer`
 import 'webpack-dev-server';
 
 const isProduction = process.env.NODE_ENV == "production";
 const stylesHandler = MiniCssExtractPlugin.loader;
 
-const config: webpack.Configuration = {
+const defaultConfig: webpack.Configuration = {
   // mode: 'production',
   entry: './src/app.tsx',
   output: {
@@ -73,12 +74,12 @@ const config: webpack.Configuration = {
   },
 };
 
-if (isProduction) {
-  config.mode = "production";
-  // config.plugins?.push(new WorkboxWebpackPlugin.GenerateSW());
-} else {
-  config.mode = "development";
-  config.devtool = "source-map";
-}
+const config = merge(defaultConfig, {
+  mode: isProduction ? "production" : "development",
+  devtool: isProduction ? "source-map" : false,
+  plugins: [
+    // new WorkboxWebpackPlugin.GenerateSW(),
+  ]
+})
 
 export default config;
