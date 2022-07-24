@@ -2,14 +2,14 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:53:31
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-25 00:07:31
+ * @LastEditTime: 2022-07-25 00:26:30
  * @FilePath: /webpack5.0-demo/src/app.tsx
  */
-import React, { FC } from 'react';
+import { FC } from 'react';
 import VerificationCode from 'picture-verification-code';
 import ReactDOM from 'react-dom';
 
-const App = () => {
+const App: FC = () => {
 
   const url = new VerificationCode().render('SB250');
 
