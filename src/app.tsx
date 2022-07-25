@@ -2,21 +2,19 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:53:31
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-25 00:26:30
- * @FilePath: /webpack5.0-demo/src/app.tsx
+ * @LastEditTime: 2022-07-25 18:26:00
+ * @FilePath: \webpack-demo\src\app.tsx
  */
 import { FC } from 'react';
-import VerificationCode from 'picture-verification-code';
+import Index from '@/pages/index';
 import ReactDOM from 'react-dom';
 
 const App: FC = () => {
 
-  const url = new VerificationCode().render('SB250');
-
   return (
     <div>
       this is a react app
-      <img src={url} alt="verification code" />
+      <Index />
     </div>
   )
 }

@@ -9,6 +9,15 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    }
   },
   // "files": ["src/app.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "*.json"
+  ]
 }

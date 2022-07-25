@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-25 00:18:51
- * @FilePath: /webpack5.0-demo/webpack.config.ts
+ * @LastEditTime: 2022-07-25 17:37:17
+ * @FilePath: \webpack-demo\webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
@@ -71,6 +71,9 @@ const defaultConfig: webpack.Configuration = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
+    alias: {
+      "@": path.resolve(__dirname, '/src'),
+    }
   },
 };
 
