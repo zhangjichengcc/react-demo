@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-25 17:37:17
- * @FilePath: \webpack-demo\webpack.config.ts
+ * @LastEditTime: 2022-07-26 00:17:53
+ * @FilePath: /webpack5.0-demo/webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
@@ -78,7 +78,7 @@ const defaultConfig: webpack.Configuration = {
 };
 
 const config = merge(defaultConfig, {
-  mode: isProduction ? "production" : "development",
+  // mode: isProduction ? "production" : "development",
   devtool: isProduction ? "source-map" : false,
   plugins: [
     // new WorkboxWebpackPlugin.GenerateSW(),

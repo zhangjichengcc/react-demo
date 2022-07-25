@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-25 17:04:42
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-25 18:27:54
- * @FilePath: \webpack-demo\src\pages\index.tsx
+ * @LastEditTime: 2022-07-26 00:03:58
+ * @FilePath: /webpack5.0-demo/src/pages/index.tsx
  */
 import React, { FC, useEffect, useState } from 'react';
 import VerificationCode, { createCode } from 'picture-verification-code';
