@@ -2,10 +2,10 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-25 17:04:42
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-26 00:03:58
+ * @LastEditTime: 2022-07-27 00:19:16
  * @FilePath: /webpack5.0-demo/src/pages/index.tsx
  */
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import VerificationCode, { createCode } from 'picture-verification-code';
 
 import styles from './index.less';
@@ -24,6 +24,7 @@ const Index: FC = () => {
 
   useEffect(function() {
     onCodeChange();
+    console.log('loaded')
   }, [])
 
   return <div className={styles.view}>

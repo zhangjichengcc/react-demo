@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-26 00:17:53
+ * @LastEditTime: 2022-07-27 00:20:37
  * @FilePath: /webpack5.0-demo/webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
@@ -43,22 +43,50 @@ const defaultConfig: webpack.Configuration = {
   module: {
     rules: [
       {
+        test: /\.tsx$/,
+        loader: 'babel-loader',
+        options: {
+          'presets': [["@babel/preset-react", {
+            "runtime": "automatic"
+          }],
+          '@babel/preset-typescript']
+        }
+      },
+      {
         test: /\.(ts|tsx)$/i,
         loader: "ts-loader",
         exclude: ["/node_modules/"],
       },
       {
-        // 同时认识ts jsx js tsx 文件
-        test: /\.(t|j)sx?$/,
-        use: 'babel-loader',
-      },
-      {
         test: /\.less$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader", "less-loader"],
+        use: [
+          stylesHandler, 
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              importLoaders: 1,
+            },
+          },
+          "postcss-loader", 
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                strictMath: true,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader"],
+        use: [
+          stylesHandler,
+          'css-loader',
+          "postcss-loader"
+        ],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -79,10 +107,10 @@ const defaultConfig: webpack.Configuration = {
 
 const config = merge(defaultConfig, {
   // mode: isProduction ? "production" : "development",
-  devtool: isProduction ? "source-map" : false,
-  plugins: [
-    // new WorkboxWebpackPlugin.GenerateSW(),
-  ]
+  devtool: isProduction ? false : "source-map",
+  // plugins: [
+  //   // new WorkboxWebpackPlugin.GenerateSW(),
+  // ]
 })
 
 export default config;
