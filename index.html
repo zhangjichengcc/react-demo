@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:37:04
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-21 23:51:49
- * @FilePath: /webpack5.0-demo/index.html
+ * @LastEditTime: 2022-07-27 17:26:50
+ * @FilePath: \webpack-demo\index.html
 -->
 <!DOCTYPE html>
 <html>
@@ -12,21 +12,21 @@
         <title>Webpack App</title>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="root"></div>
     </body>
     
     <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker
-                    .register("service-worker.js")
-                    .then((registration) => {
-                        console.log("Service Worker registered: ", registration);
-                    })
-                    .catch((registrationError) => {
-                        console.error("Service Worker registration failed: ", registrationError);
-                    });
-            });
-        }
+        // if ("serviceWorker" in navigator) {
+        //     window.addEventListener("load", () => {
+        //         navigator.serviceWorker
+        //             .register("service-worker.js")
+        //             .then((registration) => {
+        //                 console.log("Service Worker registered: ", registration);
+        //             })
+        //             .catch((registrationError) => {
+        //                 console.error("Service Worker registration failed: ", registrationError);
+        //             });
+        //     });
+        // }
     </script>
 </html>

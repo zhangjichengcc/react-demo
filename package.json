@@ -40,7 +40,8 @@
     "picture-verification-code": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.3.0"
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0"
   },
   "version": "1.0.0",
   "description": "My webpack project",

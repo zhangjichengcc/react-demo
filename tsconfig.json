@@ -12,9 +12,10 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
+      "config/*": ["config/*"]
     }
   },
-  // "files": ["src/app.ts"]
+  // "files": ["src/app.ts"],
   "exclude": [
     "node_modules",
     "dist",

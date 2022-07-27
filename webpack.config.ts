@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-27 00:20:37
- * @FilePath: /webpack5.0-demo/webpack.config.ts
+ * @LastEditTime: 2022-07-27 19:11:06
+ * @FilePath: \webpack-demo\webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
@@ -29,6 +29,8 @@ const defaultConfig: webpack.Configuration = {
     hot: true,
     open: true,
     host: "localhost",
+    // browserHistory 模式下，URL 是指向真实 URL 的资源路径，当通过真实 URL 访问网站的时候（首页），这个时候可以正常加载我们的网站资源，而用户在非首页下手动刷新网页时，由于路径是指向服务器的真实路径，但该路径下并没有相关资源，用户访问的资源不存在，返回给用户的是 404 错误
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -43,7 +45,7 @@ const defaultConfig: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         loader: 'babel-loader',
         options: {
           'presets': [["@babel/preset-react", {
@@ -66,6 +68,17 @@ const defaultConfig: webpack.Configuration = {
             options: {
               sourceMap: true,
               modules: true,
+              // modules: {
+              //   mode: "local",
+              //   auto: true,
+              //   exportGlobals: true,
+              //   localIdentName: "[path][name]__[local]--[hash:base64:5]",
+              //   localIdentContext: path.resolve(__dirname, "src"),
+              //   localIdentHashSalt: "my-custom-hash",
+              //   namedExport: true,
+              //   exportLocalsConvention: "camelCase",
+              //   exportOnlyLocals: false,
+              // },
               importLoaders: 1,
             },
           },
@@ -73,6 +86,7 @@ const defaultConfig: webpack.Configuration = {
           {
             loader: 'less-loader',
             options: {
+              sourceMap: true,
               lessOptions: {
                 strictMath: true,
               },
@@ -98,9 +112,10 @@ const defaultConfig: webpack.Configuration = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".less"],
     alias: {
-      "@": path.resolve(__dirname, '/src'),
+      "@": path.resolve(__dirname, 'src'),
+      "config": path.resolve(__dirname, 'config'),
     }
   },
 };
