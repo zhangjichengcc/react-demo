@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-28 17:33:20
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-28 19:01:18
- * @FilePath: \webpack-demo\src\pages\UseReducer\index.tsx
+ * @LastEditTime: 2022-07-29 00:16:50
+ * @FilePath: /webpack5.0-demo/src/pages/UseReducer/index.tsx
  */
 import { FC, useReducer } from 'react';
 import PageHead from '@components/PageHead';
@@ -38,6 +38,7 @@ const Demo: FC = () => {
     <PageInfo>useReducer 是 react-hooks 提供的能够在无状态组件中运行的类似 redux 的功能 api 。</PageInfo>
     
     <div>
+      <p>计数器</p>
       <span>{state.count}</span>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
