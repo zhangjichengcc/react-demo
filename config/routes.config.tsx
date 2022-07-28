@@ -2,23 +2,49 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-27 14:17:25
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-27 16:23:26
+ * @LastEditTime: 2022-07-28 18:37:25
  * @FilePath: \webpack-demo\config\routes.config.tsx
  */
+import { lazy } from 'react';
 import { RouteObject } from 'react-router';
+import lazyLoad from '@utils/lazyLoad';
 
-import Index from '@/pages/Index';
-import Home from '@/pages/Home';
+import BlankLayout from '@/layouts/BlankLayout';
+import BaseLayout from '@/layouts/BaseLayout';
+
+const Index = lazy(() => import('@/pages/Index'));
+const Home = lazy(() => import('@/pages/Home'));
+const UseReducer = lazy(() => import('@/pages/UseReducer'));
 
 const routes: RouteObject[] = [
+  // {
+  //   path: '/home',
+  //   element: <BaseLayout />,
+  //   children: [
+  //     {
+  //       path: '',
+  //       element: lazyLoad(<Index />),
+  //     },
+  //   ]
+  // },
   {
     path: '/',
-    element: <Index />,
+    element: <BaseLayout />,
+    children: [
+      {
+        path: '',
+        element: lazyLoad(<Index />),
+      },
+      {
+        path: 'useReducer',
+        element: lazyLoad(<UseReducer />),
+      }
+    ]
   },
-  {
-    path: '/home',
-    element: <Home />,
-  }
+  // {
+  //   path: '/home',
+  //   element: <Home />,
+  // }
 ];
 
 export default routes;

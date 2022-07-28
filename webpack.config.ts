@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-27 19:11:06
+ * @LastEditTime: 2022-07-28 17:24:40
  * @FilePath: \webpack-demo\webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
@@ -67,22 +67,35 @@ const defaultConfig: webpack.Configuration = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              modules: true,
-              // modules: {
-              //   mode: "local",
-              //   auto: true,
-              //   exportGlobals: true,
-              //   localIdentName: "[path][name]__[local]--[hash:base64:5]",
-              //   localIdentContext: path.resolve(__dirname, "src"),
-              //   localIdentHashSalt: "my-custom-hash",
-              //   namedExport: true,
-              //   exportLocalsConvention: "camelCase",
-              //   exportOnlyLocals: false,
-              // },
+              // modules: true,
+              modules: {
+                // mode: "local",
+                // auto: true,
+                // exportGlobals: true,
+                localIdentName: "[path][name]__[local]_[hash:base64:5]",
+                // localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                // localIdentContext: path.resolve(__dirname, "src"),
+                // localIdentHashSalt: "my-custom-hash",
+                // namedExport: true,
+                // exportLocalsConvention: "camelCase",
+                // exportOnlyLocals: false,
+              },
               importLoaders: 1,
             },
           },
-          "postcss-loader", 
+          // "postcss-loader", 
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "autoprefixer",
+                  ],
+                ],
+              },
+            },
+          },
           {
             loader: 'less-loader',
             options: {
@@ -115,6 +128,8 @@ const defaultConfig: webpack.Configuration = {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".less"],
     alias: {
       "@": path.resolve(__dirname, 'src'),
+      "@components": path.resolve(__dirname, 'src/components'),
+      "@utils": path.resolve(__dirname, 'src/utils'),
       "config": path.resolve(__dirname, 'config'),
     }
   },

@@ -12,10 +12,18 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
       "config/*": ["config/*"]
     }
   },
   // "files": ["src/app.ts"],
+  "include": [
+    "mock/**/*",
+    "src/**/*",
+    "config/**/*",
+    "typings.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
