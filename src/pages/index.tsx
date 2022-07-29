@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-25 17:04:42
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-28 17:56:55
+ * @LastEditTime: 2022-07-29 09:58:38
  * @FilePath: \webpack-demo\src\pages\index.tsx
  */
 import { FC } from 'react';
@@ -13,7 +13,7 @@ import styles from './index.less';
 const Index: FC = () => {
 
   return <div className={styles.view}>
-    <div>
+    <div className={styles.nav}>
       <NavLink to="/useReducer">useReducer</NavLink>
       <NavLink to="/home">首页</NavLink>
       <NavLink to="/home">首页</NavLink>

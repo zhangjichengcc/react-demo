@@ -2,13 +2,14 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-29 00:18:55
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-29 00:26:10
- * @FilePath: /webpack5.0-demo/src/pages/UseReducer/context.ts
+ * @LastEditTime: 2022-07-29 18:44:10
+ * @FilePath: \webpack-demo\src\pages\UseReducer\ReduxDemo\context.ts
  */
 import { createContext } from "react";
 
 interface ContextProps {
   count: number,
+  [key: string]: any,
 }
 
 const store: ContextProps = {
@@ -18,8 +19,18 @@ const store: ContextProps = {
 const Context = createContext(store);
 
 function reducer(state: ContextProps, action: any) {
-  debugger
-  return state;
+  const { type, payload } = action;
+  switch (type) {
+    case 'counter': {
+      return {
+        ...state,
+        count: payload,
+      }
+    }
+    default: {
+      return state;
+    }
+  }
 }
 
 export default Context;
