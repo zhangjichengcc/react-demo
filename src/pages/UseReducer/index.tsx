@@ -2,10 +2,10 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-28 17:33:20
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-29 14:46:46
+ * @LastEditTime: 2022-08-01 10:27:31
  * @FilePath: \webpack-demo\src\pages\UseReducer\index.tsx
  */
-import { FC, useReducer } from 'react';
+import { FC } from 'react';
 import PageHead from '@components/PageHead';
 import PageInfo from '@components/PageInfo';
 import PageDemo from '@/components/PageDemo';
