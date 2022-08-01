@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-08-01 11:39:13
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-08-01 19:11:17
- * @FilePath: \webpack-demo\src\pages\UseContext\ActiveContext\Child.tsx
+ * @LastEditTime: 2022-08-02 00:06:45
+ * @FilePath: /webpack5.0-demo/src/pages/UseContext/ActiveContext/Child.tsx
  */
 import { FC, useContext } from 'react';
 import Context from './context';
@@ -30,8 +30,12 @@ const Child: FC = () => {
   return (
     <div className={styles[theme]}>
       <p>{{en: 'Theme', zh: '主题'}[language]}: {theme}</p>
-      <button onClick={toggleTheme}>toggle Theme</button>
-      <button onClick={toggleLan}>toggle Language</button>
+      <button style={{display: 'block'}} onClick={toggleTheme}>
+        {{en: 'toggle Theme', zh: '切换主题'}[language]}
+      </button>
+      <button onClick={toggleLan}>
+        {{en: 'toggle Language', zh: '切换语言'}[language]}
+      </button>
     </div>
   )
 }

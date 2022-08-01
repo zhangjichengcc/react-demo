@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-27 14:17:25
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-08-01 10:39:25
- * @FilePath: \webpack-demo\config\routes.config.tsx
+ * @LastEditTime: 2022-08-02 00:14:54
+ * @FilePath: /webpack5.0-demo/config/routes.config.tsx
  */
 import { lazy } from 'react';
 import { RouteObject } from 'react-router';
@@ -43,13 +43,13 @@ const routes: RouteObject[] = [
       {
         path: 'useContext',
         element: lazyLoad(<UseContext />),
+      },
+      {
+        path: '/home',
+        element: <Home />,
       }
     ]
   },
-  {
-    path: '/home',
-    element: <Home />,
-  }
 ];
 
 export default routes;

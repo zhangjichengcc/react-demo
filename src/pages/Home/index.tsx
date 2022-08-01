@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-27 14:21:35
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-27 15:46:38
- * @FilePath: \webpack-demo\src\pages\Home\index.tsx
+ * @LastEditTime: 2022-08-02 00:24:39
+ * @FilePath: /webpack5.0-demo/src/pages/Home/index.tsx
  */
 import { FC, useEffect, useState } from 'react';
 import VerificationCode, { createCode } from 'picture-verification-code';
@@ -29,8 +29,9 @@ const Home: FC = () => {
 
   return (
     <div className={styles.view}>
-      <div>
-        <p>
+      <div className={styles.verification}>
+        <a href='https://www.npmjs.com/package/picture-verification-code'>picture-verification-code</a>
+        <p style={{marginTop: 10}}>
           <img src={verificationObj.url} />
           <span onClick={onCodeChange}>看不清，换一张</span>
         </p>
