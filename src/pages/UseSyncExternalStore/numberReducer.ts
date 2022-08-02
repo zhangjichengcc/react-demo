@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-08-02 14:55:20
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-08-02 15:48:19
+ * @LastEditTime: 2022-08-02 19:15:20
  * @FilePath: \webpack-demo\src\pages\UseSyncExternalStore\numberReducer.ts
  */
 import { combineReducers, legacy_createStore as createStore} from 'redux';
@@ -22,8 +22,6 @@ function numberReducer(state: number = 1, action: { type: any; }) {
 const rootReducer = combineReducers({
   number: numberReducer
 });
-
-debugger
 
 /** 创建 store */
 const store = createStore(rootReducer, { number: 1 });
