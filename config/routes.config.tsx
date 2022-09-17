@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-27 14:17:25
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-08-02 15:07:00
+ * @LastEditTime: 2022-09-17 18:13:31
  * @FilePath: \webpack-demo\config\routes.config.tsx
  */
 import { lazy } from 'react';
@@ -17,6 +17,7 @@ const Home = lazy(() => import('@/pages/Home'));
 const UseReducer = lazy(() => import('@/pages/UseReducer'));
 const UseContext = lazy(() => import('@/pages/UseContext'));
 const UseSyncExternalStore = lazy(() => import('@/pages/UseSyncExternalStore'));
+const UseMemo = lazy(() => import('@/pages/UseMemo'));
 
 const routes: RouteObject[] = [
   // {
@@ -48,6 +49,10 @@ const routes: RouteObject[] = [
       {
         path: 'useSyncExternalStore',
         element: lazyLoad(<UseSyncExternalStore />),
+      },
+      {
+        path: 'useMemo',
+        element: lazyLoad(<UseMemo />),
       },
       {
         path: '/home',
