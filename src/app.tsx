@@ -2,23 +2,16 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:53:31
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-27 17:27:04
+ * @LastEditTime: 2022-09-19 05:07:45
  * @FilePath: \webpack-demo\src\app.tsx
  */
-import { FC, StrictMode } from 'react';
-import Index from '@/pages/index';
-import Home from '@/pages/Home';
+import { FC, StrictMode, useCallback, memo } from 'react';
 import routes from 'config/routes.config';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom';
 import styles from './app.less';
 import '@/global.less';
 
-
-const APP: FC = () => {
-  const Routes = useRoutes(routes);
-  return Routes;
-}
 
 
 
@@ -27,6 +20,12 @@ const root = ReactDOM.createRoot(container!); // createRoot(container!) if you u
 
 const App: FC = () => {
 
+  const APP: FC = memo(() => {
+    console.log('router')
+    const Routes = useRoutes(routes);
+    return Routes;
+  })
+  
   return (
     <div className={styles.app}>
       <StrictMode>
