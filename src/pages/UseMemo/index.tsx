@@ -2,14 +2,16 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-17 18:11:32
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-19 04:40:54
- * @FilePath: \webpack-demo\src\pages\UseMemo\index.tsx
+ * @LastEditTime: 2022-09-21 00:17:38
+ * @FilePath: /webpack5.0-demo/src/pages/UseMemo/index.tsx
  */
 import { FC, memo } from 'react';
 import PageHead from '@components/PageHead';
 import PageInfo from '@components/PageInfo';
 import PageDemo from '@/components/PageDemo';
 import Demo1 from './Demo';
+import Demo2 from './Demo2';
+import Demo3 from './Demo3';
 
 const Memo: FC = memo(() => {
 
@@ -23,8 +25,12 @@ const Memo: FC = memo(() => {
       <Demo1 />
     </PageDemo>
 
-    <PageDemo title="default">
-      <Demo1 />
+    <PageDemo title="memo">
+      <Demo2 />
+    </PageDemo>
+
+    <PageDemo title="useMemo">
+      <Demo3 />
     </PageDemo>
   </div>
 })

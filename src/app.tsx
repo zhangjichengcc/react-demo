@@ -2,10 +2,10 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-20 23:53:31
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-19 05:07:45
- * @FilePath: \webpack-demo\src\app.tsx
+ * @LastEditTime: 2022-09-20 23:48:53
+ * @FilePath: /webpack5.0-demo/src/app.tsx
  */
-import { FC, StrictMode, useCallback, memo } from 'react';
+import { FC, useCallback, memo } from 'react';
 import routes from 'config/routes.config';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom';
@@ -28,11 +28,9 @@ const App: FC = () => {
   
   return (
     <div className={styles.app}>
-      <StrictMode>
-        <Router>
-          <APP />
-        </Router>
-      </StrictMode>
+      <Router>
+        <APP />
+      </Router>
     </div>
   )
 }

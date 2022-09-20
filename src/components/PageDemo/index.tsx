@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-28 17:48:45
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-08-02 19:14:42
- * @FilePath: \webpack-demo\src\components\PageDemo\index.tsx
+ * @LastEditTime: 2022-09-21 00:13:22
+ * @FilePath: /webpack5.0-demo/src/components/PageDemo/index.tsx
  */
 import { FC, ReactElement, ReactNode } from 'react';
 import styles from './index.less';
@@ -26,7 +26,7 @@ const PageDemo: FC<Props> = (props) => {
   const { children, title = '' } = props;
 
   return <div className={styles.view}>
-    <p>{title}</p>
+    <p className={styles.title}>{title}</p>
     {children}
   </div>
 }

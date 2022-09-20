@@ -2,12 +2,12 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-17 18:16:34
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-20 23:59:42
- * @FilePath: /webpack5.0-demo/src/pages/UseMemo/Demo.tsx
+ * @LastEditTime: 2022-09-21 00:00:04
+ * @FilePath: /webpack5.0-demo/src/pages/UseMemo/Demo2.tsx
  */
-import { FC, useState } from 'react';
+import { FC, useState, memo } from 'react';
 
-const Child1: FC<{onClick: () => void}> = (props) => {
+const Child1: FC<{onClick: () => void}> = memo((props) => {
   
   const { onClick } = props;
 
@@ -15,13 +15,13 @@ const Child1: FC<{onClick: () => void}> = (props) => {
 
   return (
     <div>
-      <i>use props onClick, but onClick is not change</i><br />
+      <i>use props onClick</i><br />
       <button onClick={onClick}>add</button>
     </div>
   )
-}
+})
 
-const Child2: FC = () => {
+const Child2: FC = memo(() => {
 
   console.log('Demo-Child2 is updated');
 
@@ -31,7 +31,7 @@ const Child2: FC = () => {
       <p>Child2</p>
     </div>
   )
-}
+})
 
 const Parent: FC = () => {
 
