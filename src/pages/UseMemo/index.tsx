@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-17 18:11:32
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-21 00:17:38
- * @FilePath: /webpack5.0-demo/src/pages/UseMemo/index.tsx
+ * @LastEditTime: 2022-09-24 19:11:29
+ * @FilePath: \webpack-demo\src\pages\UseMemo\index.tsx
  */
 import { FC, memo } from 'react';
 import PageHead from '@components/PageHead';
@@ -32,6 +32,18 @@ const Memo: FC = memo(() => {
     <PageDemo title="useMemo">
       <Demo3 />
     </PageDemo>
+
+    <pre>
+      <code className="language-html">
+        {`
+          var a = 1;
+          var b = 2;
+          function name(params:type) {
+            return params;
+          }
+        `}
+      </code>
+    </pre>
   </div>
 })
 
