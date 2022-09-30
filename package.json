@@ -37,6 +37,7 @@
     "@babel/cli": "^7.18.9",
     "@babel/preset-typescript": "^7.18.6",
     "@babel/runtime": "^7.18.9",
+    "highlight.js": "^11.6.0",
     "picture-verification-code": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
