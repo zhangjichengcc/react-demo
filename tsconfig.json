@@ -17,7 +17,7 @@
       "config/*": ["config/*"]
     }
   },
-  // "files": ["src/app.ts"],
+  // "files": ["typing.d.ts"],
   "include": [
     "mock/**/*",
     "src/**/*",

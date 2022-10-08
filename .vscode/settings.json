@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "hljs",
     "javascripts"
   ],
   "typescript.tsdk": "node_modules/typescript/lib"

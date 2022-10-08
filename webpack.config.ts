@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-18 16:30:01
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-28 17:24:40
- * @FilePath: \webpack-demo\webpack.config.ts
+ * @LastEditTime: 2022-10-08 18:24:19
+ * @FilePath: \webpack5.0-demo\webpack.config.ts
  */
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
@@ -118,6 +118,13 @@ const defaultConfig: webpack.Configuration = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
+        resourceQuery: /url/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack'],
       },
 
       // Add your rules for custom modules here

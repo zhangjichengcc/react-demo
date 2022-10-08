@@ -2,10 +2,10 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-21 00:14:09
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-30 19:02:13
+ * @LastEditTime: 2022-10-08 17:10:08
  * @FilePath: \webpack5.0-demo\typings.d.ts
  */
-declare module "*.svg";
+// declare module "*.svg";
 declare module "*.png";
 declare module "*.jpg";
 declare module "*.jpeg";
