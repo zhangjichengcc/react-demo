@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-28 16:24:06
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-10-08 19:05:37
+ * @LastEditTime: 2022-10-09 11:14:52
  * @FilePath: \webpack5.0-demo\src\components\HighLight\index.tsx
  */
 import { FC, useEffect, useRef, useState } from 'react';
@@ -40,7 +40,7 @@ const HighLight: FC<Props> = (props) => {
   const [style, setStyle] = useState({height: 0, opacity: 0});
 
   const {
-    title,
+    title = '查看代码',
     children,
   } = props;
 

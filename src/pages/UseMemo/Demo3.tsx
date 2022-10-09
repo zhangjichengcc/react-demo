@@ -2,10 +2,10 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-17 18:16:34
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-09-24 18:11:23
- * @FilePath: \webpack-demo\src\pages\UseMemo\Demo3.tsx
+ * @LastEditTime: 2022-10-09 17:52:15
+ * @FilePath: \webpack5.0-demo\src\pages\UseMemo\Demo3.tsx
  */
-import { FC, useState, memo, useMemo } from 'react';
+import { FC, useState, memo, useMemo, useCallback } from 'react';
 
 const Child1: FC<{onClick: () => void}> = memo((props) => {
   
@@ -39,13 +39,15 @@ const Parent: FC = () => {
 
   const [count, setCount] = useState(0);
 
-  // function handleClick() {
-  //   setCount(count + 1);
-  // }
+  //? handleClick方法内部本身没有依赖任何变量，因此它的依赖数组项为空。
+  const handleClick = useCallback(() => {
+    setCount((pre) => pre + 1);
+  }, []);
 
-  const handleClick = useMemo(() => () => {
-    setCount(count + 1);
-  }, [count]);
+  //? useCallBack 为 useMemo 的语法糖，以上写法作用相同
+  // const handleClick = useMemo(() => () => {
+  //   setCount((pre) => pre + 1);
+  // }, [])
 
   return (
     <div>
