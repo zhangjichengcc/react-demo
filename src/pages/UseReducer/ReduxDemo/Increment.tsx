@@ -2,23 +2,18 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-29 17:40:53
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-29 18:47:34
- * @FilePath: \webpack-demo\src\pages\UseReducer\ReduxDemo\Increment.tsx
+ * @LastEditTime: 2022-10-10 18:52:18
+ * @FilePath: \react-demo\src\pages\UseReducer\ReduxDemo\Increment.tsx
  */
 import { FC, useContext } from 'react';
 import Context from './context';
 
 const Increment: FC = () => {
 
-  const context = useContext(Context);
-
-  const {
-    count,
-    dispatch
-  } = context;
+  const [store, dispatch] = useContext(Context);;
 
   return (
-    <button onClick={() => dispatch({type: 'counter', payload: count + 1})}>+</button>
+    <button onClick={() => dispatch({type: 'set', payload: {count: store.count + 1}})}>+</button>
   )
 }
 

@@ -48,8 +48,8 @@
     "redux": "^4.2.0"
   },
   "version": "1.0.0",
-  "description": "My webpack project",
-  "name": "my-webpack-project",
+  "description": "for react learn",
+  "name": "react-demo",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --progress --mode=production --node-env=production",
