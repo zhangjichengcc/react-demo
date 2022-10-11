@@ -2,8 +2,8 @@
  * @Author: zhangjicheng
  * @Date: 2022-10-11 18:45:12
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-10-11 18:51:13
- * @FilePath: \react-demo\src\pages\ReactQuery\Simple\Example.tsx
+ * @LastEditTime: 2022-10-12 00:02:41
+ * @FilePath: /react-demo/src/pages/ReactQuery/Simple/Example.tsx
  */
 import { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -25,8 +25,8 @@ const Example: FC = () => {
     <div>
       <h1>{data.name}</h1>
       <p>{data.description}</p>
-      <strong>👀 {data.subscribers_count}</strong>{" "}
-      <strong>✨ {data.stargazers_count}</strong>{" "}
+      <strong>👀 {data.subscribers_count}</strong>
+      <strong>✨ {data.stargazers_count}</strong>
       <strong>🍴 {data.forks_count}</strong>
       <div>{isFetching ? "Updating..." : ""}</div>
     </div>
