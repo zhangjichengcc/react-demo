@@ -10,6 +10,8 @@ This project has been created using **webpack-cli**
 - React 18.2.0
 - react-router 6.3.0
 - typescript 4.7.4
+- @tanstack/react-query 1.10.3
+- axios 1.1.2
 
 ## HOW TO USE
 
