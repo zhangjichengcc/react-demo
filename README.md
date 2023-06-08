@@ -21,6 +21,8 @@ pnpm install # 安装依赖
 
 ## CONSULT
 
+[笔记本](https://docs.zhangjc.cn/#/)
+
 [从零开始的webpack5+react+typescript](https://blog.csdn.net/qq_39261142/article/details/116176902)
 
 [React-Webpack5-TypeScript打造工程化多页面应用](https://zhuanlan.zhihu.com/p/455297005)
