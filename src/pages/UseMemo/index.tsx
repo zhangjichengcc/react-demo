@@ -2,29 +2,36 @@
  * @Author: zhangjicheng
  * @Date: 2022-09-17 18:11:32
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-10-09 18:55:53
- * @FilePath: \webpack5.0-demo\src\pages\UseMemo\index.tsx
+ * @LastEditTime: 2023-06-09 18:13:44
+ * @FilePath: /react-demo/src/pages/UseMemo/index.tsx
  */
-import { FC, memo } from 'react';
-import PageHead from '@components/PageHead';
-import PageInfo from '@components/PageInfo';
-import PageDemo from '@/components/PageDemo';
-import HighLight from '@/components/HighLight';
-import Demo1 from './Demo';
-import Demo2 from './Demo2';
-import Demo3 from './Demo3';
+import { FC, memo } from "react";
+import PageHead from "@components/PageHead";
+import PageInfo from "@components/PageInfo";
+import PageDemo from "@/components/PageDemo";
+import HighLight from "@/components/HighLight";
+import Demo1 from "./Demo";
+import Demo2 from "./Demo2";
+import Demo3 from "./Demo3";
 
 const Memo: FC = memo(() => {
+  return (
+    <div>
+      <PageHead>useMemo</PageHead>
+      <PageInfo>
+        一句话概括：memo、useMemo、useCallBack主要用于避免React
+        Hooks中的重复渲染，作为性能优化的一种手段，三者需要组合并结合场景使用。
+      </PageInfo>
+      <PageInfo>
+        useCallBack和useMemo唯一的区别是：useMemo返回的是传入的回调函数的执行结果，useCallBack返回的是传入的回调函数。本质上就是useMemo的语法糖。
+      </PageInfo>
+      <PageInfo>
+        注意：不要滥用useMemo、useCallBack、使用useMemo、useCallBack时，本身会产生额外的开销，并且这两个方法必须和memo搭配使用，否则很可能会变成负优化。因此，在实际项目中，需要结合实际场景，评估重复渲染和创建useCallBack/useMemo的开销来判断到底用不用useCallBack、useMemo。
+      </PageInfo>
 
-  return <div>
-    <PageHead>useMemo</PageHead>
-    <PageInfo>一句话概括：memo、useMemo、useCallBack主要用于避免React Hooks中的重复渲染，作为性能优化的一种手段，三者需要组合并结合场景使用。</PageInfo>
-    <PageInfo>useCallBack和useMemo唯一的区别是：useMemo返回的是传入的回调函数的执行结果，useCallBack返回的是传入的回调函数。本质上就是useMemo的语法糖。</PageInfo>
-    <PageInfo>注意：不要滥用useMemo、useCallBack、使用useMemo、useCallBack时，本身会产生额外的开销，并且这两个方法必须和memo搭配使用，否则很可能会变成负优化。因此，在实际项目中，需要结合实际场景，评估重复渲染和创建useCallBack/useCallBack的开销来判断到底用不用useCallBack、useMemo。</PageInfo>
-
-    <PageDemo title="default">
-      <HighLight>
-        {`
+      <PageDemo title="default">
+        <HighLight>
+          {`
           const Child1: FC<{onClick: () => void}> = (props) => {
   
             const { onClick } = props;
@@ -71,13 +78,13 @@ const Memo: FC = memo(() => {
             )
           }
         `}
-      </HighLight>
-      <Demo1 />
-    </PageDemo>
+        </HighLight>
+        <Demo1 />
+      </PageDemo>
 
-    <PageDemo title="memo">
-      <HighLight>
-        {`
+      <PageDemo title="memo">
+        <HighLight>
+          {`
           import { FC, useState, memo } from 'react';
 
           const Child1: FC<{onClick: () => void}> = memo((props) => {
@@ -125,13 +132,13 @@ const Memo: FC = memo(() => {
             )
           }
         `}
-      </HighLight>
-      <Demo2 />
-    </PageDemo>
+        </HighLight>
+        <Demo2 />
+      </PageDemo>
 
-    <PageDemo title="useMemo">
-      <HighLight>
-        {`
+      <PageDemo title="useMemo">
+        <HighLight>
+          {`
           import { FC, useState, memo, useMemo, useCallback } from 'react';
 
           const Child1: FC<{onClick: () => void}> = memo((props) => {
@@ -187,10 +194,11 @@ const Memo: FC = memo(() => {
           
           export default Parent;
         `}
-      </HighLight>
-      <Demo3 />
-    </PageDemo>
-  </div>
-})
+        </HighLight>
+        <Demo3 />
+      </PageDemo>
+    </div>
+  );
+});
 
 export default Memo;
