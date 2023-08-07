@@ -39,6 +39,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@zhangjicheng/react-scroll-wrapper": "0.0.1-alpha2",
     "axios": "^1.1.2",
     "classnames": "^2.3.2",
     "highlight.js": "^11.6.0",
