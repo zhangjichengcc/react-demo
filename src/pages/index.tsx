@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-25 17:04:42
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2023-08-21 18:16:35
+ * @LastEditTime: 2023-10-17 18:56:40
  * @FilePath: /react-demo/src/pages/index.tsx
  */
 import { FC, useEffect } from "react";
@@ -28,6 +28,18 @@ const Index: FC = () => {
         <NavLink to="/useImperativeHandle">6. useImperativeHandle</NavLink>
         <p>plugin</p>
         <NavLink to="/reactQuery">react-query</NavLink>
+      </div>
+      <PageHead>React plugin</PageHead>
+      <div className={styles.nav}>
+        <NavLink to="/reactQuery">react Query</NavLink>
+      </div>
+      <PageHead>React Components</PageHead>
+      <div className={styles.nav}>
+        <NavLink to="/flipContent">flip</NavLink>
+      </div>
+      <PageHead>React Components</PageHead>
+      <div className={styles.nav}>
+        <NavLink to="/carousel">flip</NavLink>
       </div>
     </div>
   );

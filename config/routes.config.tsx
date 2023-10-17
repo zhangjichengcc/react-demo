@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-27 14:17:25
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2023-08-21 18:01:27
+ * @LastEditTime: 2023-10-17 18:54:11
  * @FilePath: /react-demo/config/routes.config.tsx
  */
 import { lazy } from "react";
@@ -20,6 +20,8 @@ const UseSyncExternalStore = lazy(() => import("@/pages/UseSyncExternalStore"));
 const UseMemo = lazy(() => import("@/pages/UseMemo"));
 const UseImperativeHandle = lazy(() => import("@/pages/UseImperativeHandle"));
 const ReactQuery = lazy(() => import("@/pages/ReactQuery"));
+const FlipContent = lazy(() => import("@/pages/FlipContent"));
+const Carousel = lazy(() => import("@/pages/Carousel"));
 
 const routes: RouteObject[] = [
   // {
@@ -67,6 +69,14 @@ const routes: RouteObject[] = [
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "flip",
+        element: lazyLoad(<FlipContent />),
+      },
+      {
+        path: "carousel",
+        element: lazyLoad(<Carousel />),
       },
     ],
   },
